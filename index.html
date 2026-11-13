@@ -1,0 +1,658 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="शहडोल स्मार्ट जिला पोर्टल - इतिहास, पर्यटन, कृषि, शिक्षा, स्वास्थ्य और सरकारी योजनाओं की जानकारी।">
+<title>Shahdol Smart District Portal</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ font-family:Arial,"Noto Sans Devanagari",sans-serif;
+ background:#f4f7fb;color:#263449;line-height:1.7
+}
+:root{--blue:#103c70;--dark:#09294e;--orange:#ed9b28;--green:#16834a}
+.topbar{
+ background:#082b50;color:white;padding:9px 5%;
+ display:flex;justify-content:space-between;flex-wrap:wrap;
+ font-size:13px;gap:8px
+}
+.topbar a{color:white;text-decoration:none}
+header{
+ background:white;padding:15px 5%;display:flex;
+ align-items:center;justify-content:space-between;gap:15px;
+ box-shadow:0 2px 12px #0001
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+ width:58px;height:58px;border-radius:50%;
+ background:var(--blue);color:white;display:grid;
+ place-items:center;font-size:25px;font-weight:bold
+}
+.brand h1{font-size:23px;color:var(--blue)}
+.brand p{font-size:12px;color:#666}
+.header-right{text-align:right;font-size:13px}
+nav{
+ background:var(--blue);padding:0 4%;display:flex;
+ align-items:center;justify-content:center;flex-wrap:wrap
+}
+nav a{
+ color:white;text-decoration:none;padding:14px 13px;
+ font-size:14px;transition:.2s
+}
+nav a:hover{background:var(--orange);color:#102d4d}
+.menu-btn{display:none}
+.hero{
+ min-height:430px;padding:65px 8%;
+ display:flex;align-items:center;color:white;
+ background:linear-gradient(90deg,#061d38eF,#092b45a8),
+ url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=1600')
+ center/cover;
+}
+.hero-content{max-width:750px}
+.hero small{color:#ffd18a;font-weight:bold;letter-spacing:2px}
+.hero h2{font-size:43px;line-height:1.35;margin:12px 0}
+.hero p{font-size:17px;margin-bottom:24px}
+.btn{
+ display:inline-block;background:var(--orange);color:#102d4d;
+ padding:11px 22px;border-radius:5px;text-decoration:none;
+ font-weight:bold;margin:5px;border:0;cursor:pointer
+}
+.btn-outline{background:transparent;border:1px solid white;color:white}
+.search-area{
+ max-width:800px;margin:-30px auto 35px;position:relative;
+ background:white;padding:17px;border-radius:10px;
+ box-shadow:0 5px 20px #0002;display:flex;gap:10px
+}
+.search-area input{
+ flex:1;padding:13px;border:1px solid #ddd;
+ border-radius:5px;font-size:15px;min-width:0
+}
+.section{padding:45px 6%;scroll-margin-top:20px}
+.section-title{text-align:center;margin-bottom:30px}
+.section-title small{color:var(--green);font-weight:bold}
+.section-title h2{font-size:29px;color:var(--blue)}
+.section-title p{color:#68758a;margin-top:5px}
+.stats{
+ display:grid;grid-template-columns:repeat(4,1fr);
+ gap:17px;margin-bottom:20px
+}
+.stat{
+ background:white;padding:22px;text-align:center;
+ border-radius:9px;box-shadow:0 3px 12px #0000000b;
+ border-bottom:3px solid var(--orange)
+}
+.stat h3{font-size:27px;color:var(--blue)}
+.stat p{font-size:14px;color:#666}
+.grid{
+ display:grid;grid-template-columns:repeat(3,1fr);gap:20px
+}
+.card{
+ background:white;border-radius:10px;overflow:hidden;
+ box-shadow:0 3px 14px #00000010;transition:.25s
+}
+.card:hover{transform:translateY(-5px)}
+.card img{width:100%;height:190px;object-fit:cover}
+.card-body{padding:19px}
+.card h3{color:var(--blue);font-size:19px;margin-bottom:7px}
+.card p{color:#68758a;font-size:14px}
+.card a{display:inline-block;margin-top:12px;color:#087744;font-weight:bold;text-decoration:none}
+.info-box{
+ background:white;border-radius:10px;padding:25px;
+ box-shadow:0 3px 14px #0000000b
+}
+.info-box h3{color:var(--blue);margin-bottom:10px}
+.info-box p{margin-bottom:10px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.list{padding-left:20px}
+.list li{margin:8px 0}
+.green-section{background:#eaf5ee}
+.blue-section{background:#eaf1fa}
+.notice{
+ background:#fff5e4;border-left:5px solid var(--orange);
+ padding:17px;margin:12px 0;border-radius:5px
+}
+.news-item{
+ padding:14px;border-bottom:1px solid #eee;
+ display:flex;justify-content:space-between;gap:15px
+}
+.news-item a{color:var(--blue);font-weight:bold;text-decoration:none}
+.helpline{
+ display:grid;grid-template-columns:repeat(4,1fr);gap:15px
+}
+.helpline div{
+ background:white;padding:18px;text-align:center;
+ border-radius:8px;border:1px solid #eee
+}
+.helpline h3{color:var(--green);font-size:25px}
+footer{background:#082b50;color:white;padding:40px 6% 15px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}
+footer h3{margin-bottom:12px;color:#ffc56b}
+footer a{color:white;text-decoration:none;display:block;margin:6px 0;font-size:14px}
+footer p{font-size:14px}
+.copyright{text-align:center;border-top:1px solid #ffffff30;margin-top:25px;padding-top:15px;font-size:13px}
+.backtop{
+ position:fixed;bottom:20px;right:20px;background:var(--blue);
+ color:white;padding:11px 15px;border-radius:50%;text-decoration:none
+}
+.hidden{display:none!important}
+@media(max-width:800px){
+ header{padding:12px 4%}
+ .header-right{display:none}
+ .menu-btn{display:block;background:var(--blue);color:white;padding:9px 13px;border:0;border-radius:5px}
+ nav{display:none;flex-direction:column;align-items:stretch}
+ nav.show{display:flex}
+ nav a{padding:10px 20px;border-bottom:1px solid #ffffff20}
+ .hero{min-height:380px;padding:45px 6%}
+ .hero h2{font-size:32px}
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .helpline{grid-template-columns:repeat(2,1fr)}
+ .two-col{grid-template-columns:1fr}
+ .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:500px){
+ .brand h1{font-size:17px}
+ .brand p{font-size:10px}
+ .logo{width:46px;height:46px;font-size:20px}
+ .hero h2{font-size:27px}
+ .hero p{font-size:14px}
+ .grid{grid-template-columns:1fr}
+ .search-area{margin:12px;padding:12px}
+ .section{padding:32px 5%}
+ .section-title h2{font-size:24px}
+ .footer-grid{grid-template-columns:1fr}
+ .news-item{flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+ <span>मध्य प्रदेश शासन | जिला शहडोल</span>
+ <span>
+  <a href="#home">मुख्य पृष्ठ</a> |
+  <a href="#helpline">हेल्पलाइन</a> |
+  <a href="https://shahdol.nic.in/" target="_blank">आधिकारिक वेबसाइट ↗</a>
+ </span>
+</div>
+
+<header>
+ <div class="brand">
+  <div class="logo">श</div>
+  <div>
+   <h1>SHAHDOL SMART PORTAL</h1>
+   <p>शहडोल जिला - मध्य प्रदेश, भारत</p>
+  </div>
+ </div>
+ <div class="header-right">
+  <strong>जिला प्रशासन शहडोल</strong><br>
+  नागरिक सेवा एवं सूचना पोर्टल
+ </div>
+ <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+</header>
+
+<nav id="navbar">
+ <a href="#home">होम</a>
+ <a href="#about">जिले के बारे में</a>
+ <a href="#history">इतिहास</a>
+ <a href="#administration">प्रशासन</a>
+ <a href="#tourism">पर्यटन</a>
+ <a href="#agriculture">कृषि</a>
+ <a href="#education">शिक्षा</a>
+ <a href="#health">स्वास्थ्य</a>
+ <a href="#schemes">योजनाएँ</a>
+ <a href="#news">समाचार</a>
+ <a href="#helpline">हेल्पलाइन</a>
+</nav>
+
+<!-- HOME -->
+<section class="hero" id="home">
+ <div class="hero-content">
+  <small>WELCOME TO SHAHDOL DISTRICT</small>
+  <h2>शहडोल जिले में आपका स्वागत है</h2>
+  <p>
+   संस्कृति, प्राकृतिक सुंदरता, ऐतिहासिक विरासत और जनजातीय
+   परंपराओं से समृद्ध मध्य प्रदेश का खूबसूरत जिला।
+   शहडोल की हर महत्वपूर्ण जानकारी अब एक ही स्थान पर।
+  </p>
+  <a class="btn" href="#about">जिले के बारे में जानें</a>
+  <a class="btn btn-outline" href="https://shahdol.nic.in/" target="_blank">सरकारी पोर्टल</a>
+ </div>
+</section>
+
+<div class="search-area">
+ <input id="searchInput" type="text"
+ placeholder="शहडोल की जानकारी खोजें... जैसे कृषि, अस्पताल, पर्यटन">
+ <button class="btn" onclick="searchSite()">खोजें</button>
+</div>
+
+<!-- STATS -->
+<section class="section" id="about">
+ <div class="section-title">
+  <small>SHAHDOL AT A GLANCE</small>
+  <h2>शहडोल जिला - एक नज़र में</h2>
+  <p>जिले की कुछ महत्वपूर्ण जानकारियाँ</p>
+ </div>
+ <div class="stats">
+  <div class="stat"><h3>5,610</h3><p>क्षेत्रफल (वर्ग किलोमीटर)</p></div>
+  <div class="stat"><h3>10,66,063</h3><p>जनसंख्या (जनगणना 2011)</p></div>
+  <div class="stat"><h3>886</h3><p>गाँव (जिला पोर्टल के अनुसार)</p></div>
+  <div class="stat"><h3>हिंदी</h3><p>प्रमुख भाषा</p></div>
+ </div>
+ <div class="info-box">
+  <h3>शहडोल का परिचय</h3>
+  <p>
+   शहडोल मध्य प्रदेश के उत्तर-पूर्वी भाग में स्थित एक महत्वपूर्ण
+   जिला है। यह शहडोल संभाग का मुख्यालय भी है। यहाँ प्राकृतिक
+   वन, पहाड़ियाँ, खनिज संपदा, कृषि और जनजातीय संस्कृति की
+   समृद्ध परंपरा देखने को मिलती है।
+  </p>
+  <p>
+   शहडोल जिला अपने जंगलों, कोयला संसाधनों, ऐतिहासिक
+   धरोहरों और धार्मिक स्थलों के लिए जाना जाता है।
+  </p>
+ </div>
+</section>
+
+<!-- HISTORY -->
+<section class="section blue-section" id="history">
+ <div class="section-title">
+  <small>OUR HERITAGE</small>
+  <h2>शहडोल का इतिहास</h2>
+ </div>
+ <div class="info-box">
+  <p>
+   शहडोल का नाम स्थानीय मान्यता के अनुसार सोहागपुर गाँव के
+   शाहडोलवा अहीर के नाम से जुड़ा हुआ है। यह क्षेत्र ऐतिहासिक
+   रूप से बघेलखंड और रीवा रियासत से संबंधित रहा है।
+  </p>
+  <p>
+   यहाँ सोहागपुर, बांधवगढ़ और अन्य क्षेत्रों में पुराने भवनों,
+   मंदिरों तथा ऐतिहासिक अवशेषों के प्रमाण मिलते हैं।
+  </p>
+  <p>
+   वर्ष 1948 में रियासतों के विलय के बाद जिला मुख्यालय
+   उमरिया से शहडोल स्थानांतरित किया गया था।
+  </p>
+  <a href="https://shahdol.nic.in/en/history/" target="_blank" class="btn">विस्तृत इतिहास पढ़ें</a>
+ </div>
+</section>
+
+<!-- ADMINISTRATION -->
+<section class="section" id="administration">
+ <div class="section-title">
+  <small>DISTRICT ADMINISTRATION</small>
+  <h2>जिला प्रशासन एवं व्यवस्था</h2>
+  <p>प्रशासनिक जानकारी और नागरिक सेवाएँ</p>
+ </div>
+ <div class="grid">
+  <div class="info-box">
+   <h3>जिला कलेक्टर</h3>
+   <p><b>श्री पार्थ जायसवाल (IAS)</b></p>
+   <p>जिले के प्रशासन एवं विकास कार्यों का नेतृत्व जिला कलेक्टर द्वारा किया जाता है।</p>
+   <a href="https://shahdol.nic.in/" target="_blank">आधिकारिक जानकारी ↗</a>
+  </div>
+  <div class="info-box">
+   <h3>तहसील एवं राजस्व</h3>
+   <p>भूमि रिकॉर्ड, नामांतरण, सीमांकन और राजस्व संबंधी सेवाएँ।</p>
+   <a href="https://mpbhulekh.gov.in/" target="_blank">MP भूलेख ↗</a>
+  </div>
+  <div class="info-box">
+   <h3>ग्राम पंचायत</h3>
+   <p>ग्राम विकास, पंचायत सेवाएँ और ग्रामीण योजनाओं की जानकारी।</p>
+   <a href="https://egramswaraj.gov.in/" target="_blank">ई-ग्राम स्वराज ↗</a>
+  </div>
+  <div class="info-box">
+   <h3>नगर प्रशासन</h3>
+   <p>नगर की सफाई, पानी, सड़क और अन्य नागरिक सुविधाएँ।</p>
+   <a href="https://www.mpenagarpalika.gov.in/" target="_blank">नगर पालिका पोर्टल ↗</a>
+  </div>
+  <div class="info-box">
+   <h3>पुलिस विभाग</h3>
+   <p>कानून व्यवस्था, सुरक्षा और नागरिक सहायता।</p>
+   <a href="https://shahdol.nic.in/" target="_blank">जिला निर्देशिका ↗</a>
+  </div>
+  <div class="info-box">
+   <h3>जिला कार्यालय</h3>
+   <p>विभिन्न सरकारी विभागों और अधिकारियों की जानकारी।</p>
+   <a href="https://shahdol.nic.in/en/whos-who/" target="_blank">अधिकारी निर्देशिका ↗</a>
+  </div>
+ </div>
+</section>
+
+<!-- TOURISM -->
+<section class="section green-section" id="tourism">
+ <div class="section-title">
+  <small>EXPLORE SHAHDOL</small>
+  <h2>पर्यटन एवं दर्शनीय स्थल</h2>
+  <p>शहडोल के प्रसिद्ध प्राकृतिक और धार्मिक स्थल</p>
+ </div>
+ <div class="grid">
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=700" alt="प्राचीन मंदिर">
+   <div class="card-body">
+    <h3>विराटेश्वर मंदिर</h3>
+    <p>सोहागपुर स्थित ऐतिहासिक शिव मंदिर, जो अपनी प्राचीन वास्तुकला के लिए प्रसिद्ध है।</p>
+   </div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=700" alt="प्राकृतिक पर्यटन">
+   <div class="card-body">
+    <h3>सरसी आइलैंड</h3>
+    <p>प्राकृतिक वातावरण और पर्यटन के लिए प्रसिद्ध आकर्षक स्थल।</p>
+   </div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=700" alt="गुफा">
+   <div class="card-body">
+    <h3>लाखबरिया गुफाएँ</h3>
+    <p>स्थानीय ऐतिहासिक और प्राकृतिक महत्व वाला दर्शनीय स्थान।</p>
+   </div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=700" alt="मंदिर">
+   <div class="card-body">
+    <h3>बूढ़ी माता मंदिर</h3>
+    <p>क्षेत्र का प्रसिद्ध धार्मिक स्थल, जहाँ श्रद्धालु दर्शन के लिए आते हैं।</p>
+   </div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=700" alt="प्रकृति">
+   <div class="card-body">
+    <h3>घाटी डोंगरी</h3>
+    <p>प्राकृतिक वातावरण और स्थानीय पर्यटन के लिए जाना जाने वाला स्थान।</p>
+   </div>
+  </div>
+  <div class="card">
+   <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?w=700" alt="प्राकृतिक स्थल">
+   <div class="card-body">
+    <h3>क्षीर सागर</h3>
+    <p>जिले के दर्शनीय स्थलों में शामिल एक स्थानीय आकर्षण।</p>
+   </div>
+  </div>
+ </div>
+ <p style="text-align:center;margin-top:20px">
+  <a class="btn" href="https://shahdol.nic.in/en/tourist-places/" target="_blank">सभी पर्यटन स्थल देखें</a>
+ </p>
+</section>
+
+<!-- AGRICULTURE -->
+<section class="section" id="agriculture">
+ <div class="section-title">
+  <small>AGRICULTURE INFORMATION</small>
+  <h2>कृषि एवं किसान सहायता</h2>
+  <p>शहडोल के किसानों के लिए उपयोगी जानकारी</p>
+ </div>
+ <div class="two-col">
+  <div class="info-box">
+   <h3>शहडोल की कृषि</h3>
+   <p>
+    शहडोल जिले के ग्रामीण क्षेत्रों में कृषि आजीविका का
+    महत्वपूर्ण साधन है। यहाँ धान, गेहूँ, मक्का और दलहन
+    जैसी फसलें उगाई जाती हैं। फसल का चयन मिट्टी,
+    मौसम और सिंचाई की उपलब्धता के अनुसार किया जाता है।
+   </p>
+   <h3>किसानों के लिए सुझाव</h3>
+   <ul class="list">
+    <li>मिट्टी की जाँच करवाएँ।</li>
+    <li>प्रमाणित बीज का उपयोग करें।</li>
+    <li>मौसम के अनुसार बुवाई करें।</li>
+    <li>संतुलित खाद और उर्वरक का उपयोग करें।</li>
+    <li>फसल में रोग दिखने पर कृषि विशेषज्ञ से सलाह लें।</li>
+   </ul>
+  </div>
+  <div class="info-box">
+   <h3>किसानों के उपयोगी सरकारी पोर्टल</h3>
+   <ul class="list">
+    <li><a href="https://pmkisan.gov.in/" target="_blank">PM किसान सम्मान निधि</a></li>
+    <li><a href="https://pmfby.gov.in/" target="_blank">प्रधानमंत्री फसल बीमा योजना</a></li>
+    <li><a href="https://soilhealth.dac.gov.in/" target="_blank">मृदा स्वास्थ्य कार्ड</a></li>
+    <li><a href="https://agmarknet.gov.in/" target="_blank">मंडी भाव जानकारी</a></li>
+    <li><a href="https://farmer.gov.in/" target="_blank">किसान पोर्टल</a></li>
+   </ul>
+   <div class="notice">किसान किसी भी योजना की पात्रता और आवेदन की वर्तमान स्थिति आधिकारिक पोर्टल पर जाँचें।</div>
+  </div>
+ </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section blue-section" id="education">
+ <div class="section-title">
+  <small>EDUCATION</small>
+  <h2>शिक्षा एवं कॉलेज</h2>
+  <p>विद्यार्थियों के लिए उपयोगी जानकारी</p>
+ </div>
+ <div class="grid">
+  <div class="info-box">
+   <h3>स्कूल शिक्षा</h3>
+   <p>प्राथमिक, माध्यमिक एवं उच्चतर माध्यमिक शिक्षा से संबंधित जानकारी।</p>
+  </div>
+  <div class="info-box">
+   <h3>कॉलेज एवं विश्वविद्यालय</h3>
+   <p>स्नातक, स्नातकोत्तर और उच्च शिक्षा से संबंधित संस्थानों की जानकारी।</p>
+  </div>
+  <div class="info-box">
+   <h3>छात्रवृत्ति</h3>
+   <p>पात्र विद्यार्थियों के लिए सरकारी छात्रवृत्ति योजनाओं की जानकारी।</p>
+   <a href="https://scholarshipportal.mp.nic.in/" target="_blank">छात्रवृत्ति पोर्टल ↗</a>
+  </div>
+  <div class="info-box">
+   <h3>तकनीकी शिक्षा</h3>
+   <p>ITI, पॉलिटेक्निक और तकनीकी प्रशिक्षण की जानकारी।</p>
+  </div>
+  <div class="info-box">
+   <h3>प्रतियोगी परीक्षाएँ</h3>
+   <p>सरकारी नौकरियों एवं प्रतियोगी परीक्षाओं की तैयारी।</p>
+  </div>
+  <div class="info-box">
+   <h3>शिक्षा पोर्टल</h3>
+   <p>स्कूल एवं शिक्षा विभाग की आधिकारिक जानकारी।</p>
+   <a href="https://educationportal.mp.gov.in/" target="_blank">शिक्षा पोर्टल ↗</a>
+  </div>
+ </div>
+</section>
+
+<!-- HEALTH -->
+<section class="section" id="health">
+ <div class="section-title">
+  <small>HEALTH SERVICES</small>
+  <h2>स्वास्थ्य विभाग</h2>
+  <p>स्वास्थ्य सुविधाएँ एवं आपातकालीन सेवाएँ</p>
+ </div>
+ <div class="grid">
+  <div class="info-box">
+   <h3>जिला अस्पताल</h3>
+   <p>जिला स्तर पर स्वास्थ्य सेवाएँ और चिकित्सा सुविधाएँ।</p>
+   <a href="https://shahdol.nic.in/en/public-utility-category/hospitals/" target="_blank">अस्पताल निर्देशिका ↗</a>
+  </div>
+  <div class="info-box">
+   <h3>मेडिकल कॉलेज</h3>
+   <p>बिरसा मुंडा सरकारी मेडिकल कॉलेज एवं अस्पताल की जानकारी।</p>
+   <a href="https://shahdol.nic.in/" target="_blank">आधिकारिक जिला वेबसाइट ↗</a>
+  </div>
+  <div class="info-box">
+   <h3>स्वास्थ्य योजनाएँ</h3>
+   <p>आयुष्मान भारत एवं अन्य स्वास्थ्य सेवाओं की जानकारी।</p>
+   <a href="https://pmjay.gov.in/" target="_blank">आयुष्मान भारत ↗</a>
+  </div>
+ </div>
+</section>
+
+<!-- SCHEMES -->
+<section class="section green-section" id="schemes">
+ <div class="section-title">
+  <small>GOVERNMENT SCHEMES</small>
+  <h2>सरकारी योजनाएँ</h2>
+  <p>नागरिकों, किसानों, महिलाओं और विद्यार्थियों के लिए योजनाएँ</p>
+ </div>
+ <div class="grid">
+  <div class="info-box">
+   <h3>प्रधानमंत्री आवास योजना</h3>
+   <p>पात्र परिवारों को आवास सुविधा से संबंधित सहायता।</p>
+   <a href="https://pmayg.nic.in/" target="_blank">आवेदन एवं जानकारी ↗</a>
+  </div>
+  <div class="info-box">
+   <h3>आयुष्मान भारत</h3>
+   <p>पात्र परिवारों के लिए स्वास्थ्य सुरक्षा योजना।</p>
+   <a href="https://pmjay.gov.in/" target="_blank">जानकारी ↗</a>
+  </div>
+  <div class="info-box">
+   <h3>PM किसान योजना</h3>
+   <p>पात्र किसानों को आर्थिक सहायता।</p>
+   <a href="https://pmkisan.gov.in/" target="_blank">जानकारी ↗</a>
+  </div>
+  <div class="info-box">
+   <h3>लाड़ली लक्ष्मी योजना</h3>
+   <p>बालिकाओं के भविष्य और शिक्षा को प्रोत्साहन।</p>
+   <a href="https://ladlilaxmi.mp.gov.in/" target="_blank">जानकारी ↗</a>
+  </div>
+  <div class="info-box">
+   <h3>संबल योजना</h3>
+   <p>पात्र असंगठित श्रमिक परिवारों के लिए सहायता।</p>
+   <a href="https://sambal.mp.gov.in/" target="_blank">जानकारी ↗</a>
+  </div>
+  <div class="info-box">
+   <h3>समग्र पोर्टल</h3>
+   <p>परिवार और सदस्य की समग्र ID से जुड़ी सेवाएँ।</p>
+   <a href="https://samagra.gov.in/" target="_blank">समग्र पोर्टल ↗</a>
+  </div>
+ </div>
+</section>
+
+<!-- NEWS -->
+<section class="section" id="news">
+ <div class="section-title">
+  <small>LOCAL UPDATES</small>
+  <h2>शहडोल समाचार एवं नई सूचनाएँ</h2>
+  <p>जिले की सरकारी घोषणाएँ और स्थानीय अपडेट</p>
+ </div>
+ <div class="info-box">
+  <div class="notice">
+   <b>महत्वपूर्ण:</b> इस वेबसाइट पर अभी लाइव न्यूज़ API कनेक्ट नहीं है।
+   ताजा और प्रमाणित समाचार आधिकारिक जिला पोर्टल पर देखें।
+  </div>
+  <div class="news-item">
+   <span>जिला प्रशासन की नवीन सूचनाएँ</span>
+   <a href="https://shahdol.nic.in/en/notices/" target="_blank">देखें ↗</a>
+  </div>
+  <div class="news-item">
+   <span>सरकारी भर्ती एवं रोजगार सूचना</span>
+   <a href="https://shahdol.nic.in/en/notice_category/recruitment/" target="_blank">देखें ↗</a>
+  </div>
+  <div class="news-item">
+   <span>टेंडर एवं निविदाएँ</span>
+   <a href="https://shahdol.nic.in/en/notice_category/tenders/" target="_blank">देखें ↗</a>
+  </div>
+  <div class="news-item">
+   <span>सरकारी आदेश एवं घोषणाएँ</span>
+   <a href="https://shahdol.nic.in/" target="_blank">देखें ↗</a>
+  </div>
+ </div>
+</section>
+
+<!-- HELPLINE -->
+<section class="section blue-section" id="helpline">
+ <div class="section-title">
+  <small>EMERGENCY CONTACT</small>
+  <h2>महत्वपूर्ण हेल्पलाइन नंबर</h2>
+  <p>आपातकाल में इन नंबरों का उपयोग करें</p>
+ </div>
+ <div class="helpline">
+  <div><h3>112</h3><p>आपातकालीन सहायता</p></div>
+  <div><h3>108</h3><p>एम्बुलेंस सेवा</p></div>
+  <div><h3>100</h3><p>पुलिस (पुराना नंबर)</p></div>
+  <div><h3>1091</h3><p>महिला हेल्पलाइन</p></div>
+  <div><h3>1098</h3><p>चाइल्ड हेल्पलाइन</p></div>
+  <div><h3>181</h3><p>मुख्यमंत्री हेल्पलाइन</p></div>
+  <div><h3>101</h3><p>अग्निशमन सेवा</p></div>
+  <div><h3>1077</h3><p>आपदा प्रबंधन सहायता</p></div>
+ </div>
+ <p style="margin-top:15px;font-size:13px;color:#555">
+  नोट: महत्वपूर्ण सेवाओं के नंबर और उपलब्धता समय के साथ बदल सकते हैं।
+  आवश्यकता पड़ने पर संबंधित आधिकारिक विभाग से पुष्टि करें।
+ </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+ <div class="footer-grid">
+  <div>
+   <h3>SHAHDOL SMART DISTRICT PORTAL</h3>
+   <p>
+    शहडोल जिले के नागरिकों, किसानों, विद्यार्थियों और पर्यटकों
+    को एक ही स्थान पर उपयोगी जानकारी उपलब्ध कराने का प्रयास।
+   </p>
+  </div>
+  <div>
+   <h3>महत्वपूर्ण लिंक</h3>
+   <a href="#about">जिले का परिचय</a>
+   <a href="#tourism">पर्यटन</a>
+   <a href="#agriculture">कृषि</a>
+   <a href="#education">शिक्षा</a>
+   <a href="#health">स्वास्थ्य</a>
+  </div>
+  <div>
+   <h3>सरकारी वेबसाइट</h3>
+   <a href="https://shahdol.nic.in/" target="_blank">जिला शहडोल</a>
+   <a href="https://mp.gov.in/" target="_blank">मध्य प्रदेश शासन</a>
+   <a href="https://india.gov.in/" target="_blank">भारत सरकार</a>
+  </div>
+ </div>
+ <div class="copyright">
+  © 2026 Shahdol Smart District Portal | Educational Project
+  <br>Designed for Shahdol District Information
+ </div>
+</footer>
+
+<a href="#home" class="backtop">↑</a>
+
+<script>
+function toggleMenu(){
+ document.getElementById("navbar").classList.toggle("show");
+}
+
+function searchSite(){
+ const input=document.getElementById("searchInput");
+ const query=input.value.trim().toLowerCase();
+
+ document.querySelectorAll(".search-highlight").forEach(el=>{
+  el.classList.remove("search-highlight");
+ });
+
+ if(!query){
+  alert("कृपया खोजने के लिए कुछ लिखें।");
+  return;
+ }
+
+ const sections=[...document.querySelectorAll("section[id]")];
+ const match=sections.find(section=>
+  section.innerText.toLowerCase().includes(query)
+ );
+
+ if(match){
+  match.scrollIntoView({behavior:"smooth"});
+  match.style.outline="3px solid #ed9b28";
+  setTimeout(()=>match.style.outline="none",2000);
+ }else{
+  alert("इस विषय की जानकारी नहीं मिली। दूसरे शब्द से खोजें।");
+ }
+}
+
+document.getElementById("searchInput").addEventListener("keydown",e=>{
+ if(e.key==="Enter")searchSite();
+});
+
+document.querySelectorAll("#navbar a").forEach(link=>{
+ link.addEventListener("click",()=>{
+  document.getElementById("navbar").classList.remove("show");
+ });
+});
+</script>
+
+</body>
+</html>
